@@ -14,14 +14,16 @@ header {
     display: flex;
     flex-direction: column;
 }
-.logo-container{
+
+.logo-container {
     display: flex;
     justify-content: center;
 }
-.logo-principal{
+
+.logo-principal {
     width: 6rem;
     height: 6rem;
-    max-height:  8rem;
+    max-height: 8rem;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -32,7 +34,7 @@ header {
 .social-icons img {
     width: 2.5rem;
     height: 2.5rem;
-    max-height:  4rem;
+    max-height: 4rem;
     margin: 3px;
     background-size: cover;
     background-position: center;
@@ -48,9 +50,10 @@ header {
     align-items: flex-end;
 }
 
-.header-right a, nav{
+.header-right a,
+nav {
     color: yellow;
-    text-decoration: none;    
+    text-decoration: none;
     font-size: 18px;
     margin-top: 15px;
 }
@@ -68,7 +71,7 @@ header {
     border: none;
     outline: none;
     padding: 5px;
-      
+
     font-size: 18px;
 }
 
@@ -76,7 +79,7 @@ header {
     border: none;
     background: none;
     cursor: pointer;
-      
+
     font-size: 18px;
 }
 
@@ -134,7 +137,7 @@ header {
     overflow: hidden;
 }
 
-.titulos{
+.titulos {
     width: 100%;
     text-align: center;
     font-size: 2rem;
@@ -160,7 +163,7 @@ header {
     gap: 20px;
     justify-content: center;
     align-items: center;
-    justify-items: center;  
+    justify-items: center;
     background-color: #f8f9fa;
 }
 
@@ -170,170 +173,171 @@ header {
     justify-content: center;
     margin-bottom: 20px;
 }
+
 /* --------------------------------DISEÑO DEL BOTON VER MAS------------------------------------ */
 
-/* From Uiverse.io by cssbuttons-io */ 
+/* From Uiverse.io by cssbuttons-io */
 button {
- position: relative;
- display: inline-block;
- cursor: pointer;
- outline: none;
- border: 0;
- vertical-align: middle;
- text-decoration: none;
- background: transparent;
- padding: 0;
- font-size: inherit;
- font-family: inherit;
+    position: relative;
+    display: inline-block;
+    cursor: pointer;
+    outline: none;
+    border: 0;
+    vertical-align: middle;
+    text-decoration: none;
+    background: transparent;
+    padding: 0;
+    font-size: inherit;
+    font-family: inherit;
 }
 
 button.learn-more {
- width: 12rem;
- height: auto;
+    width: 12rem;
+    height: auto;
 }
 
 button.learn-more .circle {
- transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
- position: relative;
- display: block;
- margin: 0;
- width: 3rem;
- height: 3rem;
- background: #ffff;
- border-radius: 1.625rem;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #ffff;
+    border-radius: 1.625rem;
 }
 
 button.learn-more .circle .icon {
- transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
- position: absolute;
- top: 0;
- bottom: 0;
- margin: auto;
- background: #000000;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #000000;
 }
 
 button.learn-more .circle .icon.arrow {
- transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
- left: 0.625rem;
- width: 1.125rem;
- height: 0.125rem;
- background: none;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
 }
 
 button.learn-more .circle .icon.arrow::before {
- position: absolute;
- content: "";
- top: -0.29rem;
- right: 0.0625rem;
- width: 0.625rem;
- height: 0.625rem;
- border-top: 0.125rem solid #000000;
- border-right: 0.125rem solid #000000;
- transform: rotate(45deg);
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #000000;
+    border-right: 0.125rem solid #000000;
+    transform: rotate(45deg);
 }
 
 button.learn-more .button-text {
- transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
- position: absolute;
- top: 0;
- left: 0;
- right: 0;
- bottom: 0;
- padding: 0.75rem 0;
- margin: 0 0 0 1.85rem;
- color: #ffff;
- font-weight: 700;
- line-height: 1.6;
- text-align: center;
- text-transform: uppercase;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #ffff;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 button:hover .circle {
- width: 100%;
+    width: 100%;
 }
 
 button:hover .circle .icon.arrow {
- background: #000000;
- transform: translate(1rem, 0);
+    background: #000000;
+    transform: translate(1rem, 0);
 }
 
 button:hover .button-text {
- color: #000000;
+    color: #000000;
 }
 
 /*-------------------------------------------------------------*/
 button.learn-more2 {
- width: 12rem;
- height: auto;
+    width: 12rem;
+    height: auto;
 }
 
 button.learn-more2 .circle2 {
- transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
- position: relative;
- display: block;
- margin: 0;
- width: 3rem;
- height: 3rem;
- background: #000000;
- border-radius: 1.625rem;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: relative;
+    display: block;
+    margin: 0;
+    width: 3rem;
+    height: 3rem;
+    background: #000000;
+    border-radius: 1.625rem;
 }
 
 button.learn-more2 .circle2 .icon2 {
- transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
- position: absolute;
- top: 0;
- bottom: 0;
- margin: auto;
- background: #ffff;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    margin: auto;
+    background: #ffff;
 }
 
 button.learn-more2 .circle2 .icon2.arrow2 {
- transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
- left: 0.625rem;
- width: 1.125rem;
- height: 0.125rem;
- background: none;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    left: 0.625rem;
+    width: 1.125rem;
+    height: 0.125rem;
+    background: none;
 }
 
 button.learn-more2 .circle2 .icon2.arrow2::before {
- position: absolute;
- content: "";
- top: -0.29rem;
- right: 0.0625rem;
- width: 0.625rem;
- height: 0.625rem;
- border-top: 0.125rem solid #ffff;
- border-right: 0.125rem solid #ffff;
- transform: rotate(45deg);
+    position: absolute;
+    content: "";
+    top: -0.29rem;
+    right: 0.0625rem;
+    width: 0.625rem;
+    height: 0.625rem;
+    border-top: 0.125rem solid #ffff;
+    border-right: 0.125rem solid #ffff;
+    transform: rotate(45deg);
 }
 
 button.learn-more2 .button-text2 {
- transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
- position: absolute;
- top: 0;
- left: 0;
- right: 0;
- bottom: 0;
- padding: 0.75rem 0;
- margin: 0 0 0 1.85rem;
- color: #000000;
- font-weight: 700;
- line-height: 1.6;
- text-align: center;
- text-transform: uppercase;
+    transition: all 0.45s cubic-bezier(0.65, 0, 0.076, 1);
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    padding: 0.75rem 0;
+    margin: 0 0 0 1.85rem;
+    color: #000000;
+    font-weight: 700;
+    line-height: 1.6;
+    text-align: center;
+    text-transform: uppercase;
 }
 
 button:hover .circle2 {
- width: 100%;
+    width: 100%;
 }
 
 button:hover .circle2 .icon2.arrow2 {
- background: #ffff;
- transform: translate(1rem, 0);
+    background: #ffff;
+    transform: translate(1rem, 0);
 }
 
 button:hover .button-text2 {
- color: #ffff;
+    color: #ffff;
 }
 
 /* --------------------------------FINAL DISEÑO DEL BOTON VER MAS------------------------------------ */
@@ -373,7 +377,7 @@ button:hover .button-text2 {
 
 /*Footer*/
 
-.footer-amarillo{
+.footer-amarillo {
     background-color: #c7c400;
     color: black;
     padding: 10px 20px;
@@ -386,16 +390,16 @@ button:hover .button-text2 {
     flex-direction: column;
 }
 
-.logo-footer-container{
+.logo-footer-container {
     display: flex;
     justify-content: center;
-    align-items: center;    
+    align-items: center;
 }
 
-.logo-footer{
+.logo-footer {
     width: 8rem;
     height: 8rem;
-    max-height:  8rem;
+    max-height: 8rem;
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
@@ -408,11 +412,54 @@ button:hover .button-text2 {
     display: flex;
     flex-direction: column;
 }
+.contact-form {
+    background-color: #ffffffa9;
+    border-radius: 4px;
+    padding: 5px;
+}
 
-.header-right {
+.contact-title {
+    text-align: center;
+     margin: 0;
+    padding: 3px;
+}
+
+.form-group {
     display: flex;
-    flex-direction: column;
-    align-items: flex-end;
+    align-items: center;
+    margin-bottom: 5px;
+}
+
+.form-group label {
+    width: 80px;
+}
+
+.input-text {
+    flex: 1;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+}
+
+textarea.input-text {
+    resize: none;
+}
+
+.button-container {
+    justify-content: center;
+    margin: 0;
+}
+.btn-enviar {
+    background-color: black;
+    color: #ffffff;
+    border: none;
+    padding: 3px 6px;
+    border-radius: 3px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.btn-enviar:hover {
+    background-color: #414141;
 }
 
 .footer-final {

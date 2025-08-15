@@ -219,20 +219,31 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
 
             </article>
 
-            <article>
-                <h3>Contactanos</h3>
-                <form action="">
-                    <label for="Nombre">Nombre:</label>
-                    <input type="text" placeholder="Nombre"><br>
-                    <label for="Telefono">Telefono:</label>
-                    <input type="int" placeholder="Telefono"><br>
-                    <label for="Email">Email:</label>
-                    <input type="email" placeholder="Email"><br>
-                    <label for="Mensaje">Mensaje:</label>
-                    <textarea placeholder="Mensaje"></textarea><br>
-                    <button type="submit">Enviar</button>
+            <div class="contact-form">
+                <h3 class="contact-title">Contáctanos</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" class="input-text">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" class="input-text">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="text" id="telefono" class="input-text">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" class="input-text"></textarea>
+                    </div>
+                    <div class="form-group button-container">
+                        <button type="submit" class="btn-enviar">Enviar</button>
+                    </div>
                 </form>
-            </article>
+            </div>
+
         </section>
 
         <section class="footer-final">
