@@ -38,26 +38,26 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
     <Header>
         <section class="header-left">
             <div class="logo-container">
-                <img class="logo-principal" src="" alt="logo">
+                <img class="logo-principal" src="./imgs/logo2.png" alt="logo">
             </div>
             <div class="social-icons">
-                <a href=""><img src="facebook.png" alt="Facebook"></a>
-                <a href=""><img src="youtube.png" alt="YouTube"></a>
-                <a href=""><img src="instagram.png" alt="Instagram"></a>
+                <a href="https://www.facebook.com/"><img src="./imgs/Facebook.png" alt="Facebook"></a>
+                <a href="https://www.youtube.com/"><img src="./imgs/Youtube.png" alt="YouTube"></a>
+                <a href="https://www.instagram.com/"><img src="./imgs/Instagram.png" alt="Instagram"></a>
             </div>
 
         </section>
 
         <section class="header-right">
-            <div class="icon-cuenta">
-                <img class="logo-cuenta" src="" alt="cuenta">
+            <div class="social-icons">
+                <img class="logo-cuenta" src="./imgs/cuenta.png" alt="cuenta">
             </div>
 
             <nav>
-                <a href="">INICIO</a>
-                <a href="">QUIENES SOMOS</a>
-                <a href="">ALQUILERES</a>
-                <a href="">VENTAS</a>
+                <a href="">INICIO</a> |
+                <a href="">QUIENES SOMOS</a> |
+                <a href="">ALQUILERES</a> |
+                <a href="">VENTAS</a> |
                 <a href="">CONTACTANOS</a>
             </nav>
 
@@ -104,14 +104,19 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
 
                     <div class="card-descripcion">
                         <p><?= htmlspecialchars($propiedad['descripcion_breve']) ?></p>
-                        <p><?= htmlspecialchars($propiedad['precio']) ?></p>
+                        <p>Precio: $<?= htmlspecialchars($propiedad['precio']) ?></p>
                     </div>
                 </article>
 
             <?php } //Cierre del foreach 
             ?>
             <div class="cardButtonContainer">
-                <button class="cardButton">VER MAS...</button>
+                <button class="learn-more">
+                    <span class="circle" aria-hidden="true">
+                        <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">Ver mas</span>
+                </button>
             </div>
 
         </section>
@@ -136,7 +141,7 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
 
                     <div class="card-descripcion">
                         <p><?= htmlspecialchars($propiedad['descripcion_breve']) ?></p>
-                        <p><?= htmlspecialchars($propiedad['precio']) ?></p>
+                        <p>Precio: $<?= htmlspecialchars($propiedad['precio']) ?></p>
                     </div>
                 </article>
 
@@ -144,7 +149,12 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
             ?>
 
             <div class="cardButtonContainer">
-                <button class="cardButton">VER MAS...</button>
+                <button class="learn-more2">
+                    <span class="circle2" aria-hidden="true">
+                        <span class="icon2 arrow2"></span>
+                    </span>
+                    <span class="button-text2">Ver mas</span>
+                </button>
             </div>
         </section>
 
@@ -168,7 +178,7 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
 
                     <div class="card-descripcion">
                         <p><?= htmlspecialchars($propiedad['descripcion_breve']) ?></p>
-                        <p><?= htmlspecialchars($propiedad['precio']) ?></p>
+                        <p>Precio: $<?= htmlspecialchars($propiedad['precio']) ?></p>
                     </div>
                 </article>
 
@@ -176,7 +186,12 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
             ?>
 
             <div class="cardButtonContainer">
-                <button class="cardButton">VER MAS...</button>
+                <button class="learn-more">
+                    <span class="circle" aria-hidden="true">
+                        <span class="icon arrow"></span>
+                    </span>
+                    <span class="button-text">Ver mas</span>
+                </button>
             </div>
         </section>
 
@@ -184,22 +199,22 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
 
     <footer>
         <section class="footer-amarillo">
-            <article class="footer-izquierda">
+            <article class="footer-left">
                 <h3>Direccion</h3>
                 <p>Telefono: 123456789</p>
                 <p>Email: info@utnrealstate.com</p>
             </article>
 
-            <article class="footer-central">
+            <article class="footer-center">
 
-                <article>
-                    <img src="" alt="">
+                <article class="logo-footer-container">
+                    <img class="logo-footer" src="./imgs/logo1.png" alt="Logo oscuro">
                 </article>
 
-                <article class="social-icons-footer">
-                    <a href=""><img src="facebook.png" alt="Facebook"></a>
-                    <a href=""><img src="youtube.png" alt="YouTube"></a>
-                    <a href=""><img src="instagram.png" alt="Instagram"></a>
+                <article class="social-icons">
+                    <a href="https://www.facebook.com/"><img src="./imgs/Facebook.png" alt="Facebook"></a>
+                    <a href="https://www.youtube.com/"><img src="./imgs/Youtube.png" alt="YouTube"></a>
+                    <a href="https://www.instagram.com/"><img src="./imgs/Instagram.png" alt="Instagram"></a>
                 </article>
 
             </article>
