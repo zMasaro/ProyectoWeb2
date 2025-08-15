@@ -1,3 +1,108 @@
+body {
+    margin: 0;
+}
+
+header {
+    background-color: #0b0c10;
+    color: white;
+    padding: 10px 20px;
+    display: flex;
+    justify-content: space-between;
+}
+
+.header-left {
+    display: flex;
+    flex-direction: column;
+}
+
+.header-right {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
+
+
+.buscador {
+    display: flex;
+    align-items: center;
+    background: white;
+    border-radius: 5px;
+    padding: 3px 5px;
+    margin-top: 16px;
+}
+
+.buscador input {
+    border: none;
+    outline: none;
+    padding: 5px;
+}
+
+.buscador button {
+    border: none;
+    background: none;
+    cursor: pointer;
+}
+
+.buscador button img {
+    height: 20px;
+    /* De momento no se ve nada porque no hay imagen del boton */
+}
+
+
+
+.banner {
+    width: 100%;
+    height: 80dvh;
+    max-height: 1080px;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+
+.texto-banner {
+    position: absolute;
+    inset: 0;
+    display: grid;
+    place-items: center;
+    background: rgba(0, 0, 0, 0.15);
+}
+
+.texto-banner h1 {
+    margin: 0;
+    color: #fff;
+    text-align: center;
+    text-transform: uppercase;
+    letter-spacing: .08em;
+    font: 700 2.2rem/1.25 system-ui, sans-serif;
+}
+
+
+.quienes-somos {
+    display: flex;
+    justify-content: space-around;
+    padding: 4rem;
+
+}
+
+.quienes-somos-img {
+    width: 40vw;
+    height: 50vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.titulos{
+    width: 100%;
+    text-align: center;
+    font-size: 2rem;
+}
+
 .card-container {
     display: flex;
     flex-wrap: wrap;
@@ -5,11 +110,27 @@
     justify-content: center;
     align-items: center;
     justify-items: center;
+    background-color: rgb(16, 16, 75);
 }
 
-.card-container h2, button{
+.card-container h1 {
+    color: white;
+}
+
+.ventas-container {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    justify-items: center;  
+    background-color: #f8f9fa;
+}
+
+.cardButtonContainer {
     width: 100%;
-    text-align: center;
+    display: flex;
+    justify-content: center;
     margin-bottom: 20px;
 }
 

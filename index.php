@@ -27,61 +27,67 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTN Real State</title>
     <link rel="stylesheet" href="styles/index.css">
+    <style>
+        .banner {
+            background-image: url('./imgs/banner.jpg');
+        }
+    </style>
 </head>
 
 <body>
     <Header>
+        <section class="header-left">
+            <div class="logo-container">
+                <img class="logo-principal" src="" alt="logo">
+            </div>
+            <div class="social-icons">
+                <a href=""><img src="facebook.png" alt="Facebook"></a>
+                <a href=""><img src="youtube.png" alt="YouTube"></a>
+                <a href=""><img src="instagram.png" alt="Instagram"></a>
+            </div>
 
-        <section class="logo-container">
-            <img class="logo-principal" src="" alt="">
         </section>
 
-        <div class="social-icons">
-            <a href=""><img src="facebook.png" alt="Facebook"></a>
-            <a href=""><img src="youtube.png" alt="YouTube"></a>
-            <a href=""><img src="instagram.png" alt="Instagram"></a>
-        </div>
+        <section class="header-right">
+            <div class="icon-cuenta">
+                <img class="logo-cuenta" src="" alt="cuenta">
+            </div>
 
-        <nav>
-            <a href="">INICIO</a>
-            <a href="">QUIENES SOMOS</a>
-            <a href="">ALQUILERES</a>
-            <a href="">VENTAS</a>
-            <a href="">CONTACTANOS</a>
-        </nav>
+            <nav>
+                <a href="">INICIO</a>
+                <a href="">QUIENES SOMOS</a>
+                <a href="">ALQUILERES</a>
+                <a href="">VENTAS</a>
+                <a href="">CONTACTANOS</a>
+            </nav>
 
-        <section class="icon-cuenta">
-            <img class="logo-cuenta" src="" alt="">
+            <div class="buscador">
+                <input type="text" placeholder="Ingrese su busqueda">
+                <button type="submit">Buscar</button>
+            </div>
         </section>
-
-        <div class="buscador">
-            <input type="text" placeholder="Ingrese su busqueda">
-            <button type="submit">Buscar</button>
-        </div>
-
     </Header>
 
     <main>
 
         <section class="banner">
-            <img class="banner-principal" src="" alt="">
             <article class="texto-banner">
-                <p>TEXTO DEL BANNER AQUI</p>
+                <h1>TEXTO DEL BANNER AQUI</h1>
             </article>
         </section>
-
+        <h1 class="titulos">Quienes Somos</h1>
         <section class="quienes-somos">
+            <article class="texto-quienes-somos">
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio voluptatem adipisci similique error corporis earum libero veritatis aliquam, laudantium, molestiae aperiam minus ad ipsa sit fuga vitae modi nesciunt ut? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis deserunt praesentium, et veritatis, aperiam hic consequuntur voluptate quibusdam repellendus adipisci, natus assumenda optio suscipit quis iure eveniet nobis vel sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, error similique? Reiciendis eius accusantium distinctio, enim consequuntur tempora, repudiandae, obcaecati iusto et architecto libero dolores nam eos. Accusamus, reprehenderit inventore.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio voluptatem adipisci similique error corporis earum libero veritatis aliquam, laudantium, molestiae aperiam minus ad ipsa sit fuga vitae modi nesciunt ut? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis deserunt praesentium, et veritatis, aperiam hic consequuntur voluptate quibusdam repellendus adipisci, natus assumenda optio suscipit quis iure eveniet nobis vel sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, error similique? Reiciendis eius accusantium distinctio, enim consequuntur tempora, repudiandae, obcaecati iusto et architecto libero dolores nam eos. Accusamus, reprehenderit inventore.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio voluptatem adipisci similique error corporis earum libero veritatis aliquam, laudantium, molestiae aperiam minus ad ipsa sit fuga vitae modi nesciunt ut? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis deserunt praesentium, et veritatis, aperiam hic consequuntur voluptate quibusdam repellendus adipisci, natus assumenda optio suscipit quis iure eveniet nobis vel sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, error similique? Reiciendis eius accusantium distinctio, enim consequuntur tempora, repudiandae, obcaecati iusto et architecto libero dolores nam eos. Accusamus, reprehenderit inventore.</p>
+            </article>
             <article class="quienes-somos-img-container">
-                <img class="quienes-somos-img" src="" alt="">
+                <img class="quienes-somos-img" src="./imgs/QuienesSomos.jpg" alt="Quienes Somos">
             </article>
 
-            <article class="texto-quienes-somos">
-                <p>QUIENES SOMOS AQUI</p>
-            </article>
         </section>
 
         <section class="card-container">
-            <h2>Propiedades Destacadas</h2>
+            <h1 class="titulos">Propiedades Destacadas</h1>
 
             <?php
             $propiedadesDestacadas = array_slice($_SESSION['propiedadesDestacadas'], 0, 3); // solo extrae 3 propiedades destacadas
@@ -104,12 +110,14 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
 
             <?php } //Cierre del foreach 
             ?>
-            <button>VER MAS...</button>
+            <div class="cardButtonContainer">
+                <button class="cardButton">VER MAS...</button>
+            </div>
 
         </section>
 
-        <section class="card-container">
-            <h2>Propiedades en venta</h2>
+        <section class="ventas-container">
+            <h1 class="titulos">Propiedades en venta</h1>
             <?php { //un map que se recorre printando todas las tarjetas de las propiedades Destacadas (Nombre, Descripcion, Precio, Imagen)  DEBAJO DEJO EL EJEMPLO DE LAS TARJETA
             } ?>
 
@@ -135,11 +143,13 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
             <?php } //Cierre del foreach 
             ?>
 
-            <button>VER MAS...</button>
+            <div class="cardButtonContainer">
+                <button class="cardButton">VER MAS...</button>
+            </div>
         </section>
 
         <section class="card-container">
-            <h2>Propiedades en alquiler</h2>
+            <h1 class="titulos">Propiedades en alquiler</h1>
             <?php { //un map que se recorre printando todas las tarjetas de las propiedades Destacadas (Nombre, Descripcion, Precio, Imagen)  DEBAJO DEJO EL EJEMPLO DE LAS TARJETA
             } ?>
 
@@ -165,7 +175,9 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
             <?php } //Cierre del foreach 
             ?>
 
-            <button>VER MAS...</button>
+            <div class="cardButtonContainer">
+                <button class="cardButton">VER MAS...</button>
+            </div>
         </section>
 
     </main>

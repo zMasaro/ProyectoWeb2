@@ -1,7 +1,4 @@
 <?php
-if (isset($_SESSION['propiedadesDestacadas'])) {
-    session_destroy();
-}
 
 
 

@@ -1,7 +1,5 @@
 <?php
-if (isset($_SESSION['propiedadesVentas'])) {
-    session_destroy();
-}
+
 
 
 
