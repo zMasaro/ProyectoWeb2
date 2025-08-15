@@ -1,6 +1,22 @@
 <?php
 session_start();
 
+include 'includes/conexion.php';
+include 'includes/obtenerPropiedades/obtenerAlquiler.php';
+include 'includes/obtenerPropiedades/obtenerVentas.php';
+include 'includes/obtenerPropiedades/obtenerDestacadas.php';
+
+
+if (!isset($_SESSION['propiedadesDestacadas'])) {
+    $_SESSION['propiedadesDestacadas'] = [];
+}
+if (!isset($_SESSION['propiedadesVentas'])) {
+    $_SESSION['propiedadesVentas'] = [];
+}
+if (!isset($_SESSION['propiedadesAlquiler'])) {
+    $_SESSION['propiedadesAlquiler'] = [];
+}
+
 ?>
 
 <!DOCTYPE html>
@@ -10,6 +26,7 @@ session_start();
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTN Real State</title>
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 
 <body>
@@ -63,69 +80,91 @@ session_start();
             </article>
         </section>
 
-        <section class="propiedades-destacadas">
+        <section class="card-container">
+            <h2>Propiedades Destacadas</h2>
+
+            <?php
+            $propiedadesDestacadas = array_slice($_SESSION['propiedadesDestacadas'], 0, 3); // solo extrae 3 propiedades destacadas
+            foreach ($propiedadesDestacadas as $propiedad) {
+            ?>
+                <article class="card">
+                    <div class="card-img-container">
+                        <img class="card-img" src="<?= htmlspecialchars($propiedad['img_link']) ?>" alt="Foto Propiedad">
+                    </div>
+
+                    <div class="card-titulo">
+                        <h3><?= htmlspecialchars($propiedad['titulo']) ?></h3>
+                    </div>
+
+                    <div class="card-descripcion">
+                        <p><?= htmlspecialchars($propiedad['descripcion_breve']) ?></p>
+                        <p><?= htmlspecialchars($propiedad['precio']) ?></p>
+                    </div>
+                </article>
+
+            <?php } //Cierre del foreach 
+            ?>
+            <button>VER MAS...</button>
+
+        </section>
+
+        <section class="card-container">
+            <h2>Propiedades en venta</h2>
             <?php { //un map que se recorre printando todas las tarjetas de las propiedades Destacadas (Nombre, Descripcion, Precio, Imagen)  DEBAJO DEJO EL EJEMPLO DE LAS TARJETA
             } ?>
-            <section class="card">
 
-                <section class="card-img-container">
-                    <img class="card-img" src="" alt="">
-                </section>
+            <?php
+            $propiedadesVentas = array_slice($_SESSION['propiedadesVentas'], 0, 3); // solo extrae 3 propiedades destacadas
+            foreach ($propiedadesVentas as $propiedad) {
+            ?>
+                <article class="card">
+                    <div class="card-img-container">
+                        <img class="card-img" src="<?= htmlspecialchars($propiedad['img_link']) ?>" alt="Foto Propiedad">
+                    </div>
 
-                <section class="card-titulo">
-                    <h3>Nombre de la propiedad</h3>
-                </section>
+                    <div class="card-titulo">
+                        <h3><?= htmlspecialchars($propiedad['titulo']) ?></h3>
+                    </div>
 
-                <section class="card-descripcion">
-                    <p>Descripcion de la propiedad</p>
-                    <p>Precio 2.99</p>
-                </section>
+                    <div class="card-descripcion">
+                        <p><?= htmlspecialchars($propiedad['descripcion_breve']) ?></p>
+                        <p><?= htmlspecialchars($propiedad['precio']) ?></p>
+                    </div>
+                </article>
 
-            </section>
+            <?php } //Cierre del foreach 
+            ?>
+
             <button>VER MAS...</button>
         </section>
 
-        <section class="propiedades-en-venta">
+        <section class="card-container">
+            <h2>Propiedades en alquiler</h2>
             <?php { //un map que se recorre printando todas las tarjetas de las propiedades Destacadas (Nombre, Descripcion, Precio, Imagen)  DEBAJO DEJO EL EJEMPLO DE LAS TARJETA
             } ?>
-            <section class="card">
 
-                <section class="card-img-container">
-                    <img class="card-img" src="" alt="">
-                </section>
+            <?php
+            $propiedadesAlquiler = array_slice($_SESSION['propiedadesAlquiler'], 0, 3); // solo extrae 3 propiedades destacadas
+            foreach ($propiedadesAlquiler as $propiedad) {
+            ?>
+                <article class="card">
+                    <div class="card-img-container">
+                        <img class="card-img" src="<?= htmlspecialchars($propiedad['img_link']) ?>" alt="Foto Propiedad">
+                    </div>
 
-                <section class="card-titulo">
-                    <h3>Nombre de la propiedad</h3>
-                </section>
+                    <div class="card-titulo">
+                        <h3><?= htmlspecialchars($propiedad['titulo']) ?></h3>
+                    </div>
 
-                <section class="card-descripcion">
-                    <p>Descripcion de la propiedad</p>
-                    <p>Precio 2.99</p>
-                </section>
+                    <div class="card-descripcion">
+                        <p><?= htmlspecialchars($propiedad['descripcion_breve']) ?></p>
+                        <p><?= htmlspecialchars($propiedad['precio']) ?></p>
+                    </div>
+                </article>
 
-            </section>
-            <button>VER MAS...</button>
-        </section>
+            <?php } //Cierre del foreach 
+            ?>
 
-        <section class="propiedades-en-alquiler">
-            <?php { //un map que se recorre printando todas las tarjetas de las propiedades Destacadas (Nombre, Descripcion, Precio, Imagen)  DEBAJO DEJO EL EJEMPLO DE LAS TARJETA
-            } ?>
-            <section class="card">
-
-                <section class="card-img-container">
-                    <img class="card-img" src="" alt="">
-                </section>
-
-                <section class="card-titulo">
-                    <h3>Nombre de la propiedad</h3>
-                </section>
-
-                <section class="card-descripcion">
-                    <p>Descripcion de la propiedad</p>
-                    <p>Precio 2.99</p>
-                </section>
-
-            </section>
             <button>VER MAS...</button>
         </section>
 
