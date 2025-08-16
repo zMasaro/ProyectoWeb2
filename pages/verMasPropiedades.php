@@ -84,10 +84,12 @@ if (!isset($_SESSION['color-claro'])) $_SESSION['color-claro'] = '#ffffff';
                 <a href="">CONTACTANOS</a>
             </nav>
 
-            <div class="buscador">
-                <input type="text" placeholder="Ingrese su busqueda">
-                <button type="submit">Buscar</button>
-            </div>
+            <form action="../includes/obtenerPropiedades/obtenerFiltradas.php" method="GET">
+                <div class="buscador">
+                    <input type="text" name="descripcion_breve" placeholder="Ingrese su busqueda">
+                    <button type="submit">Buscar</button>
+                </div>
+            </form>
         </section>
     </Header>
 

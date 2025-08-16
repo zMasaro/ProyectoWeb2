@@ -1,7 +1,6 @@
 <?php 
 
 //Personalizar página la cual nos mostrará un formulario el cual debe permitir 
-//▪ Colores de la página(azul, amarillo y gris, blanco y gris) 
 //▪ Cambiar el ícono, tanto el principal como el de color blanco 
 //▪ Cambiar la imagen principal del banner y su mensaje 
 //▪ Cambiar la información de quienes somos y la imagen que se 

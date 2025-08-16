@@ -1,9 +1,17 @@
 <?php
 session_start();
 include 'includes/conexion.php';
+
+if (!isset($_SESSION['propiedadesDestacadas'])) {
 include 'includes/obtenerPropiedades/obtenerDestacadas.php';
+}
+if (!isset($_SESSION['propiedadesVentas'])) {
 include 'includes/obtenerPropiedades/obtenerVentas.php';
+}
+if (!isset($_SESSION['propiedadesAlquiler'])) {
 include 'includes/obtenerPropiedades/obtenerAlquiler.php';
+}
+
 if (isset($_SESSION['color-principal']) && isset($_SESSION['color-secundario']) && isset($_SESSION['color-terciario']) && isset($_SESSION['color-claro'])) {
     // Colores ya definidos en la sesión
 } else {
@@ -66,10 +74,12 @@ if (isset($_SESSION['color-principal']) && isset($_SESSION['color-secundario']) 
                 <a href="./pages/verMasPropiedades.php?id=<?= $row['id'] = 3 ?>">VENTAS</a> |
                 <a href="">CONTACTANOS</a>
             </nav>
-            <div class="buscador">
-                <input type="text" placeholder="Ingrese su busqueda">
-                <button type="submit">Buscar</button>
-            </div>
+            <form action="./includes/obtenerPropiedades/obtenerFiltradas.php" method="GET">
+                <div class="buscador">
+                    <input type="text" name="descripcion_breve" placeholder="Ingrese su busqueda">
+                    <button type="submit">Buscar</button>
+                </div>
+            </form>
         </section>
     </header>
 
