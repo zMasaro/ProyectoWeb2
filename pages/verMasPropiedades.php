@@ -95,11 +95,11 @@ if (!isset($_SESSION['texto-correo'])) $_SESSION['texto-correo'] = 'info@utnreal
             <nav>
                 <!----<a href="">Administrar</a> |                       Este es el que se debe mostrar si el login es Admin--->
                 <a href="../index.php">INICIO</a> |
-                <a href="">QUIENES SOMOS</a> |
+                <a href="../index.php#QuienesSomos">QUIENES SOMOS</a> |
                 <a href="verMasPropiedades.php?id=<?= $row['id'] = 1 ?>">DESTACADAS</a> |
                 <a href="verMasPropiedades.php?id=<?= $row['id'] = 2 ?>">ALQUILERES</a> |
                 <a href="verMasPropiedades.php?id=<?= $row['id'] = 3 ?>">VENTAS</a> |
-                <a href="">CONTACTANOS</a>
+                <a href="#Contactanos">CONTACTANOS</a>
             </nav>
 
             <form action="../includes/obtenerPropiedades/obtenerFiltradas.php" method="GET">
@@ -161,7 +161,7 @@ if (!isset($_SESSION['texto-correo'])) $_SESSION['texto-correo'] = 'info@utnreal
 
             </article>
 
-            <div class="contact-form">
+            <div id="Contactanos" class="contact-form">
                 <h3 class="contact-title">Contáctanos</h3>
                 <form>
                     <div class="form-group">

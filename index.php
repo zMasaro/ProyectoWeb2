@@ -84,11 +84,11 @@ if (!isset($_SESSION['texto-correo'])) $_SESSION['texto-correo'] = 'info@utnreal
                 <!----<a href="">Administrar</a> |                       Este es el que se debe mostrar si el login es Admin--->
                 <a href="./pages/administrar.php">ADMINISTRAR</a> |
                 <a href="">INICIO</a> |
-                <a href="">QUIENES SOMOS</a> |
+                <a href="#QuienesSomos">QUIENES SOMOS</a> |
                 <a href="./pages/verMasPropiedades.php?id=<?= $row['id'] = 1 ?>">DESTACADAS</a> |
                 <a href="./pages/verMasPropiedades.php?id=<?= $row['id'] = 2 ?>">ALQUILERES</a> |
                 <a href="./pages/verMasPropiedades.php?id=<?= $row['id'] = 3 ?>">VENTAS</a> |
-                <a href="">CONTACTANOS</a>
+                <a href="#Contactanos">CONTACTANOS</a>
             </nav>
             <form action="./includes/obtenerPropiedades/obtenerFiltradas.php" method="GET">
                 <div class="buscador">
@@ -106,7 +106,7 @@ if (!isset($_SESSION['texto-correo'])) $_SESSION['texto-correo'] = 'info@utnreal
                 <h1><?php echo $_SESSION['texto-banner'] ?></h1>
             </article>
         </section>
-        <section class="quienes-somos">
+        <section id="QuienesSomos"  class="quienes-somos">
 
             <h1 class="titulos">Quienes Somos</h1>
             <article class="texto-quienes-somos">
@@ -247,7 +247,7 @@ if (!isset($_SESSION['texto-correo'])) $_SESSION['texto-correo'] = 'info@utnreal
 
             </article>
 
-            <div class="contact-form">
+            <div id="Contactanos" class="contact-form">
                 <h3 class="contact-title">Contáctanos</h3>
                 <form>
                     <div class="form-group">
