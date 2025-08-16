@@ -3,25 +3,39 @@ session_start();
 include 'includes/conexion.php';
 
 if (!isset($_SESSION['propiedadesDestacadas'])) {
-include 'includes/obtenerPropiedades/obtenerDestacadas.php';
+    include 'includes/obtenerPropiedades/obtenerDestacadas.php';
 }
 if (!isset($_SESSION['propiedadesVentas'])) {
-include 'includes/obtenerPropiedades/obtenerVentas.php';
+    include 'includes/obtenerPropiedades/obtenerVentas.php';
 }
 if (!isset($_SESSION['propiedadesAlquiler'])) {
-include 'includes/obtenerPropiedades/obtenerAlquiler.php';
+    include 'includes/obtenerPropiedades/obtenerAlquiler.php';
 }
-
-if (!isset($_SESSION['color-principal']) && !isset($_SESSION['color-secundario']) && 
-!isset($_SESSION['color-terciario']) && !isset($_SESSION['color-claro'])) {
+if (!isset($_SESSION['color-principal'])) {
     $_SESSION['color-principal'] = '#10104b';
     $_SESSION['color-secundario'] = '#c7c400';
-    $_SESSION['color-terciario'] = '#0000';
+    $_SESSION['color-terciario'] = '#000000';
     $_SESSION['color-claro'] = '#ffffff';
 }
 
-if (!isset($_SESSION['icono-principal'])) $_SESSION['icono-principal'] = 'imgs/logo1.png'; // Ruta del icono principal
-if (!isset($_SESSION['icono-blanco'])) $_SESSION['icono-blanco'] = 'imgs/logo2.png'; // Ruta del icono blanco
+if (!isset($_SESSION['icono-principal'])) $_SESSION['icono-principal'] = 'imgs/logo1.png';
+if (!isset($_SESSION['icono-blanco'])) $_SESSION['icono-blanco'] = 'imgs/logo2.png';
+
+
+if (!isset($_SESSION['img-banner'])) $_SESSION['img-banner'] = 'imgs/banner.jpg';
+if (!isset($_SESSION['texto-banner'])) $_SESSION['texto-banner'] = "PERMITENOS AYUDARTE A CUMPLIR TUS SUEÑOS";
+
+if (!isset($_SESSION['img-somos'])) $_SESSION['img-somos'] = 'imgs/QuienesSomos.jpg';
+if (!isset($_SESSION['texto-somos'])) $_SESSION['texto-somos'] = "Somos una empresa dedicada a brindar soluciones inmobiliarias de calidad, con un equipo comprometido a ayudarte a encontrar el lugar perfecto para ti.";
+
+if (!isset($_SESSION['url-yt'])) $_SESSION['url-yt'] = 'https://www.youtube.com/';
+if (!isset($_SESSION['url-fb'])) $_SESSION['url-fb'] = 'https://www.facebook.com/';
+if (!isset($_SESSION['url-ins'])) $_SESSION['url-ins'] = 'https://www.instagram.com/';
+
+if (!isset($_SESSION['texto-direccion'])) $_SESSION['texto-direccion'] = '300 metros norte y 200 este del liceo Maurilio Alvarado Vargas';
+if (!isset($_SESSION['texto-telefono'])) $_SESSION['texto-telefono'] = '123456789';
+if (!isset($_SESSION['texto-correo'])) $_SESSION['texto-correo'] = 'info@utnrealstate.com';
+
 
 ?>
 
@@ -41,7 +55,7 @@ if (!isset($_SESSION['icono-blanco'])) $_SESSION['icono-blanco'] = 'imgs/logo2.p
         }
 
         .banner {
-            background-image: url('./imgs/banner.jpg');
+            background-image: url('./<?php echo $_SESSION['img-banner'] ?>');
         }
     </style>
     <link rel="stylesheet" href="styles/index.css">
@@ -51,12 +65,12 @@ if (!isset($_SESSION['icono-blanco'])) $_SESSION['icono-blanco'] = 'imgs/logo2.p
     <header class="header">
         <section class="header-left">
             <div class="logo-container">
-                <img class="logo-principal" src="./<?php echo $_SESSION['icono-principal']?>" alt="logo">
+                <img class="logo-principal" src="./<?php echo $_SESSION['icono-principal'] ?>" alt="logo">
             </div>
             <div class="social-icons">
-                <a href="https://www.facebook.com/"><img src="./imgs/Facebook.png" alt="Facebook"></a>
-                <a href="https://www.youtube.com/"><img src="./imgs/Youtube.png" alt="YouTube"></a>
-                <a href="https://www.instagram.com/"><img src="./imgs/Instagram.png" alt="Instagram"></a>
+                <a href="<?php echo $_SESSION['url-fb'] ?>"><img src="./imgs/Facebook.png" alt="Facebook"></a>
+                <a href="<?php echo $_SESSION['url-yt'] ?>"><img src="./imgs/Youtube.png" alt="YouTube"></a>
+                <a href="<?php echo $_SESSION['url-ins'] ?>"><img src="./imgs/Instagram.png" alt="Instagram"></a>
             </div>
 
         </section>
@@ -89,17 +103,17 @@ if (!isset($_SESSION['icono-blanco'])) $_SESSION['icono-blanco'] = 'imgs/logo2.p
 
         <section class="banner">
             <article class="texto-banner">
-                <h1>TEXTO DEL BANNER AQUI</h1>
+                <h1><?php echo $_SESSION['texto-banner'] ?></h1>
             </article>
         </section>
         <section class="quienes-somos">
 
             <h1 class="titulos">Quienes Somos</h1>
             <article class="texto-quienes-somos">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio voluptatem adipisci similique error corporis earum libero veritatis aliquam, laudantium, molestiae aperiam minus ad ipsa sit fuga vitae modi nesciunt ut? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis deserunt praesentium, et veritatis, aperiam hic consequuntur voluptate quibusdam repellendus adipisci, natus assumenda optio suscipit quis iure eveniet nobis vel sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, error similique? Reiciendis eius accusantium distinctio, enim consequuntur tempora, repudiandae, obcaecati iusto et architecto libero dolores nam eos. Accusamus, reprehenderit inventore.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio voluptatem adipisci similique error corporis earum libero veritatis aliquam, laudantium, molestiae aperiam minus ad ipsa sit fuga vitae modi nesciunt ut? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis deserunt praesentium, et veritatis, aperiam hic consequuntur voluptate quibusdam repellendus adipisci, natus assumenda optio suscipit quis iure eveniet nobis vel sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, error similique? Reiciendis eius accusantium distinctio, enim consequuntur tempora, repudiandae, obcaecati iusto et architecto libero dolores nam eos. Accusamus, reprehenderit inventore.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio voluptatem adipisci similique error corporis earum libero veritatis aliquam, laudantium, molestiae aperiam minus ad ipsa sit fuga vitae modi nesciunt ut? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis deserunt praesentium, et veritatis, aperiam hic consequuntur voluptate quibusdam repellendus adipisci, natus assumenda optio suscipit quis iure eveniet nobis vel sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, error similique? Reiciendis eius accusantium distinctio, enim consequuntur tempora, repudiandae, obcaecati iusto et architecto libero dolores nam eos. Accusamus, reprehenderit inventore.</p>
+                <p><?php echo $_SESSION['texto-somos'] ?></p>
             </article>
             <article class="quienes-somos-img-container">
-                <img class="quienes-somos-img" src="./imgs/QuienesSomos.jpg" alt="Quienes Somos">
+                <img class="quienes-somos-img" src="./<?php echo $_SESSION['img-somos'] ?>" alt="Quienes Somos">
             </article>
 
         </section>
@@ -141,8 +155,6 @@ if (!isset($_SESSION['icono-blanco'])) $_SESSION['icono-blanco'] = 'imgs/logo2.p
 
         <section class="ventas-container">
             <h1 class="titulos">Propiedades en venta</h1>
-            <?php { //un map que se recorre printando todas las tarjetas de las propiedades Destacadas (Nombre, Descripcion, Precio, Imagen)  DEBAJO DEJO EL EJEMPLO DE LAS TARJETA
-            } ?>
 
             <?php
             $propiedadesVentas = array_slice($_SESSION['propiedadesVentas'], -3); // solo extrae 3 propiedades destacadas
@@ -178,8 +190,6 @@ if (!isset($_SESSION['icono-blanco'])) $_SESSION['icono-blanco'] = 'imgs/logo2.p
 
         <section class="card-container">
             <h1 class="titulos">Propiedades en alquiler</h1>
-            <?php { //un map que se recorre printando todas las tarjetas de las propiedades Destacadas (Nombre, Descripcion, Precio, Imagen)  DEBAJO DEJO EL EJEMPLO DE LAS TARJETA
-            } ?>
 
             <?php
             $propiedadesAlquiler = array_slice($_SESSION['propiedadesAlquiler'], -3); // solo extrae 3 propiedades destacadas
@@ -218,21 +228,21 @@ if (!isset($_SESSION['icono-blanco'])) $_SESSION['icono-blanco'] = 'imgs/logo2.p
     <footer>
         <section class="footer-amarillo">
             <article class="footer-left">
-                <h3>Direccion</h3>
-                <p>Telefono: 123456789</p>
-                <p>Email: info@utnrealstate.com</p>
+                <h3>Direccion: <?php echo $_SESSION['texto-direccion'] ?></h3>
+                <p>Telefono: <?php echo $_SESSION['texto-telefono'] ?></p>
+                <p>Email: <?php echo $_SESSION['texto-correo'] ?></p>
             </article>
 
             <article class="footer-center">
 
                 <article class="logo-footer-container">
-                    <img class="logo-footer" src="./<?php echo $_SESSION['icono-blanco']?>" alt="Logo oscuro">
+                    <img class="logo-footer" src="./<?php echo $_SESSION['icono-blanco'] ?>" alt="Logo oscuro">
                 </article>
 
                 <article class="social-icons">
-                    <a href="https://www.facebook.com/"><img src="./imgs/Facebook.png" alt="Facebook"></a>
-                    <a href="https://www.youtube.com/"><img src="./imgs/Youtube.png" alt="YouTube"></a>
-                    <a href="https://www.instagram.com/"><img src="./imgs/Instagram.png" alt="Instagram"></a>
+                    <a href="<?php echo $_SESSION['url-fb'] ?>"><img src="./imgs/Facebook.png" alt="Facebook"></a>
+                    <a href="<?php echo $_SESSION['url-yt'] ?>"><img src="./imgs/Youtube.png" alt="YouTube"></a>
+                    <a href="<?php echo $_SESSION['url-ins'] ?>"><img src="./imgs/Instagram.png" alt="Instagram"></a>
                 </article>
 
             </article>

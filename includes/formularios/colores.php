@@ -1,9 +1,6 @@
 <?php 
-
 session_start();
 
-
-//Colores
 if (!isset($_SESSION['color-principal']) && !isset($_SESSION['color-secundario']) && 
 !isset($_SESSION['color-terciario']) && !isset($_SESSION['color-claro'])) {
     $_SESSION['color-principal'] = '#10104b';
@@ -33,4 +30,3 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 
     header("Location: ../../index.php");
 }
-//Terminan los colores

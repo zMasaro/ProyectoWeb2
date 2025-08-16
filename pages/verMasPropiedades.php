@@ -32,6 +32,25 @@ if (!isset($_SESSION['color-principal'])) $_SESSION['color-principal'] = '#10104
 if (!isset($_SESSION['color-secundario'])) $_SESSION['color-secundario'] = '#c7c400';
 if (!isset($_SESSION['color-terciario'])) $_SESSION['color-terciario'] = '#000000';
 if (!isset($_SESSION['color-claro'])) $_SESSION['color-claro'] = '#ffffff';
+
+if (!isset($_SESSION['icono-principal'])) $_SESSION['icono-principal'] = 'imgs/logo1.png'; // Ruta del icono principal
+if (!isset($_SESSION['icono-blanco'])) $_SESSION['icono-blanco'] = 'imgs/logo2.png'; // Ruta del icono blanco
+
+
+if (!isset($_SESSION['img-banner'])) $_SESSION['img-banner'] = 'imgs/banner.jpg'; // Ruta del icono principal
+if (!isset($_SESSION['texto-banner'])) $_SESSION['texto-banner'] = "PERMITENOS AYUDARTE A CUMPLIR TUS SUEÑOS"; // Ruta del icono blanco
+
+if (!isset($_SESSION['img-somos'])) $_SESSION['img-somos'] = 'imgs/QuienesSomos.jpg';
+if (!isset($_SESSION['texto-somos'])) $_SESSION['texto-somos'] = "Somos una empresa dedicada a brindar soluciones inmobiliarias de calidad, con un equipo comprometido a ayudarte a encontrar el lugar perfecto para ti.";
+
+if (!isset($_SESSION['url-yt'])) $_SESSION['url-yt'] = 'https://www.youtube.com/'; // URL de YouTube
+if (!isset($_SESSION['url-fb'])) $_SESSION['url-fb'] = 'https://www.facebook.com/'; // URL de Facebook
+if (!isset($_SESSION['url-ins'])) $_SESSION['url-ins'] = 'https://www.instagram.com/'; // URL de Instagram
+
+if (!isset($_SESSION['texto-direccion'])) $_SESSION['texto-direccion'] = '300 metros norte y 200 este del liceo Maurilio Alvarado Vargas';
+if (!isset($_SESSION['texto-telefono'])) $_SESSION['texto-telefono'] = '123456789';
+if (!isset($_SESSION['texto-correo'])) $_SESSION['texto-correo'] = 'info@utnrealstate.com';
+
 ?>
 
 
@@ -58,12 +77,12 @@ if (!isset($_SESSION['color-claro'])) $_SESSION['color-claro'] = '#ffffff';
     <Header>
         <section class="header-left">
             <div class="logo-container">
-                <img class="logo-principal" src="../<?php echo $_SESSION['icono-principal']?>" alt="logo">
+                <img class="logo-principal" src="../<?php echo $_SESSION['icono-principal'] ?>" alt="logo">
             </div>
             <div class="social-icons">
-                <a href="https://www.facebook.com/"><img src="../imgs/Facebook.png" alt="Facebook"></a>
-                <a href="https://www.youtube.com/"><img src="../imgs/Youtube.png" alt="YouTube"></a>
-                <a href="https://www.instagram.com/"><img src="../imgs/Instagram.png" alt="Instagram"></a>
+                <a href="<?php echo $_SESSION['url-fb'] ?>"><img src="../imgs/Facebook.png" alt="Facebook"></a>
+                <a href="<?php echo $_SESSION['url-yt'] ?>"><img src="../imgs/Youtube.png" alt="YouTube"></a>
+                <a href="<?php echo $_SESSION['url-ins'] ?>"><img src="../imgs/Instagram.png" alt="Instagram"></a>
             </div>
 
         </section>
@@ -123,21 +142,21 @@ if (!isset($_SESSION['color-claro'])) $_SESSION['color-claro'] = '#ffffff';
     <footer>
         <section class="footer-amarillo">
             <article class="footer-left">
-                <h3>Direccion</h3>
-                <p>Telefono: 123456789</p>
-                <p>Email: info@utnrealstate.com</p>
+                <h3>Direccion: <?php echo $_SESSION['texto-direccion']?></h3>
+                <p>Telefono: <?php echo $_SESSION['texto-telefono']?></p>
+                <p>Email: <?php echo $_SESSION['texto-correo']?></p>
             </article>
 
             <article class="footer-center">
 
                 <article class="logo-footer-container">
-                    <img class="logo-footer" src="../<?php echo $_SESSION['icono-blanco']?>" alt="Logo oscuro">
+                    <img class="logo-footer" src="../<?php echo $_SESSION['icono-blanco'] ?>" alt="Logo oscuro">
                 </article>
 
                 <article class="social-icons">
-                    <a href="https://www.facebook.com/"><img src="../imgs/Facebook.png" alt="Facebook"></a>
-                    <a href="https://www.youtube.com/"><img src="../imgs/Youtube.png" alt="YouTube"></a>
-                    <a href="https://www.instagram.com/"><img src="../imgs/Instagram.png" alt="Instagram"></a>
+                    <a href="<?php echo $_SESSION['url-fb'] ?>"><img src="../imgs/Facebook.png" alt="Facebook"></a>
+                    <a href="<?php echo $_SESSION['url-yt'] ?>"><img src="../imgs/Youtube.png" alt="YouTube"></a>
+                    <a href="<?php echo $_SESSION['url-ins'] ?>"><img src="../imgs/Instagram.png" alt="Instagram"></a>
                 </article>
 
             </article>
