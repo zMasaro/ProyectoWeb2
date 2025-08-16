@@ -166,8 +166,8 @@ nav {
 .card-container-mas-propiedades{
     display: flex;
     flex-wrap: wrap;
-    gap: 5px;
-    justify-content: space-between;
+    gap: 20px;
+    justify-content: center;
     align-items: center;
     justify-items: center;
     background-color: var(--color-principal);
@@ -200,7 +200,7 @@ nav {
 /* --------------------------------DISEÑO DEL BOTON VER MAS------------------------------------ */
 
 /* From Uiverse.io by cssbuttons-io */
-button {
+.cardButtonContainer button {
     position: relative;
     display: inline-block;
     cursor: pointer;
@@ -370,7 +370,8 @@ button:hover .button-text2 {
     border: 1px solid var(--color-claro);
     color: var(--color-principal);
     border-radius: 4px;
-    width: 30dvw;
+    min-width: 600px;
+    max-width: 600px;
     overflow: hidden;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
@@ -402,7 +403,8 @@ button:hover .button-text2 {
     border: 1px solid var(--color-principal);
     color: var(--color-claro);
     border-radius: 4px;
-    width: 30dvw;
+    min-width: 600px;
+    max-width: 600px;
     overflow: hidden;
     text-align: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);

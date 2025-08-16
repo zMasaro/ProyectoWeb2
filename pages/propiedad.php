@@ -53,7 +53,7 @@ if (!isset($_SESSION['color-claro'])) $_SESSION['color-claro'] = '#ffffff';
     <Header>
         <section class="header-left">
             <div class="logo-container">
-                <img class="logo-principal" src="../imgs/logo1.png" alt="logo">
+                <img class="logo-principal" src="../<?php echo $_SESSION['icono-principal']?>" alt="logo">
             </div>
             <div class="social-icons">
                 <a href="https://www.facebook.com/"><img src="../imgs/Facebook.png" alt="Facebook"></a>
@@ -127,7 +127,7 @@ if (!isset($_SESSION['color-claro'])) $_SESSION['color-claro'] = '#ffffff';
             <article class="footer-center">
 
                 <article class="logo-footer-container">
-                    <img class="logo-footer" src="../imgs/logo2.png" alt="Logo oscuro">
+                    <img class="logo-footer" src="../<?php echo $_SESSION['icono-blanco']?>" alt="Logo oscuro">
                 </article>
 
                 <article class="social-icons">

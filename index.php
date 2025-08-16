@@ -12,15 +12,17 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
 include 'includes/obtenerPropiedades/obtenerAlquiler.php';
 }
 
-if (isset($_SESSION['color-principal']) && isset($_SESSION['color-secundario']) && isset($_SESSION['color-terciario']) && isset($_SESSION['color-claro'])) {
-    // Colores ya definidos en la sesión
-} else {
-    // Definir colores por defecto si no están establecidos
+if (!isset($_SESSION['color-principal']) && !isset($_SESSION['color-secundario']) && 
+!isset($_SESSION['color-terciario']) && !isset($_SESSION['color-claro'])) {
     $_SESSION['color-principal'] = '#10104b';
     $_SESSION['color-secundario'] = '#c7c400';
-    $_SESSION['color-terciario'] = '#000000ff';
+    $_SESSION['color-terciario'] = '#0000';
     $_SESSION['color-claro'] = '#ffffff';
 }
+
+if (!isset($_SESSION['icono-principal'])) $_SESSION['icono-principal'] = 'imgs/logo1.png'; // Ruta del icono principal
+if (!isset($_SESSION['icono-blanco'])) $_SESSION['icono-blanco'] = 'imgs/logo2.png'; // Ruta del icono blanco
+
 ?>
 
 <!DOCTYPE html>
@@ -49,7 +51,7 @@ if (isset($_SESSION['color-principal']) && isset($_SESSION['color-secundario']) 
     <header class="header">
         <section class="header-left">
             <div class="logo-container">
-                <img class="logo-principal" src="./imgs/logo1.png" alt="logo">
+                <img class="logo-principal" src="./<?php echo $_SESSION['icono-principal']?>" alt="logo">
             </div>
             <div class="social-icons">
                 <a href="https://www.facebook.com/"><img src="./imgs/Facebook.png" alt="Facebook"></a>
@@ -224,7 +226,7 @@ if (isset($_SESSION['color-principal']) && isset($_SESSION['color-secundario']) 
             <article class="footer-center">
 
                 <article class="logo-footer-container">
-                    <img class="logo-footer" src="./imgs/logo2.png" alt="Logo oscuro">
+                    <img class="logo-footer" src="./<?php echo $_SESSION['icono-blanco']?>" alt="Logo oscuro">
                 </article>
 
                 <article class="social-icons">
