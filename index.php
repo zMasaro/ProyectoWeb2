@@ -1,22 +1,9 @@
 <?php
 session_start();
-
 include 'includes/conexion.php';
-include 'includes/obtenerPropiedades/obtenerAlquiler.php';
-include 'includes/obtenerPropiedades/obtenerVentas.php';
 include 'includes/obtenerPropiedades/obtenerDestacadas.php';
-
-
-if (!isset($_SESSION['propiedadesDestacadas'])) {
-    $_SESSION['propiedadesDestacadas'] = [];
-}
-if (!isset($_SESSION['propiedadesVentas'])) {
-    $_SESSION['propiedadesVentas'] = [];
-}
-if (!isset($_SESSION['propiedadesAlquiler'])) {
-    $_SESSION['propiedadesAlquiler'] = [];
-}
-
+include 'includes/obtenerPropiedades/obtenerVentas.php';
+include 'includes/obtenerPropiedades/obtenerAlquiler.php';
 ?>
 
 <!DOCTYPE html>
@@ -43,7 +30,7 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
             <div class="social-icons">
                 <a href="https://www.facebook.com/"><img src="./imgs/Facebook.png" alt="Facebook"></a>
                 <a href="https://www.youtube.com/"><img src="./imgs/Youtube.png" alt="YouTube"></a>
-                <a href="https://www.instagram.com/"><img src="./imgs/Instagram.png" alt="Instagram"></a>
+                <a href="https://www.instagram.com/"><img src="./imgs/Instagram.png" alt="Instagram"></a>                
             </div>
 
         </section>
@@ -54,10 +41,12 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
             </div>
 
             <nav>
+                <!----<a href="">Administrar</a> |                       Este es el que se debe mostrar si el login es Admin--->
                 <a href="">INICIO</a> |
                 <a href="">QUIENES SOMOS</a> |
-                <a href="">ALQUILERES</a> |
-                <a href="">VENTAS</a> |
+                <a href="./pages/verMasPropiedades.php?id=<?= $row['id'] = 1 ?>">DESTACADAS</a> |
+                <a href="./pages/verMasPropiedades.php?id=<?= $row['id'] = 2 ?>">ALQUILERES</a> |
+                <a href="./pages/verMasPropiedades.php?id=<?= $row['id'] = 3 ?>">VENTAS</a> |
                 <a href="">CONTACTANOS</a>
             </nav>
 
@@ -90,10 +79,10 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
             <h1 class="titulos">Propiedades Destacadas</h1>
 
             <?php
-            $propiedadesDestacadas = array_slice($_SESSION['propiedadesDestacadas'], 0, 3); // solo extrae 3 propiedades destacadas
+            $propiedadesDestacadas = array_slice($_SESSION['propiedadesDestacadas'], -3); // solo extrae 3 propiedades destacadas
             foreach ($propiedadesDestacadas as $propiedad) {
             ?>
-                <article class="card">
+                <article class="card" onclick="location.href='./pages/propiedad.php?id=<?= $propiedad['id']?>'">
                     <div class="card-img-container">
                         <img class="card-img" src="<?= htmlspecialchars($propiedad['img_link']) ?>" alt="Foto Propiedad">
                     </div>
@@ -111,7 +100,7 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
             <?php } //Cierre del foreach 
             ?>
             <div class="cardButtonContainer">
-                <button class="learn-more">
+                <button class="learn-more" onclick="location.href='./pages/verMasPropiedades.php?id=<?= $row['id'] = 1 ?>'">
                     <span class="circle" aria-hidden="true">
                         <span class="icon arrow"></span>
                     </span>
@@ -127,10 +116,10 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
             } ?>
 
             <?php
-            $propiedadesVentas = array_slice($_SESSION['propiedadesVentas'], 0, 3); // solo extrae 3 propiedades destacadas
+            $propiedadesVentas = array_slice($_SESSION['propiedadesVentas'], -3); // solo extrae 3 propiedades destacadas
             foreach ($propiedadesVentas as $propiedad) {
             ?>
-                <article class="card">
+                <article class="card" onclick="location.href='./pages/propiedad.php?id=<?= $propiedad['id']?>'">
                     <div class="card-img-container">
                         <img class="card-img" src="<?= htmlspecialchars($propiedad['img_link']) ?>" alt="Foto Propiedad">
                     </div>
@@ -149,7 +138,7 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
             ?>
 
             <div class="cardButtonContainer">
-                <button class="learn-more2">
+                <button class="learn-more2" onclick="location.href='./pages/verMasPropiedades.php?id=<?= $row['id'] = 3 ?>'">
                     <span class="circle2" aria-hidden="true">
                         <span class="icon2 arrow2"></span>
                     </span>
@@ -164,10 +153,10 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
             } ?>
 
             <?php
-            $propiedadesAlquiler = array_slice($_SESSION['propiedadesAlquiler'], 0, 3); // solo extrae 3 propiedades destacadas
+            $propiedadesAlquiler = array_slice($_SESSION['propiedadesAlquiler'], -3); // solo extrae 3 propiedades destacadas
             foreach ($propiedadesAlquiler as $propiedad) {
             ?>
-                <article class="card">
+                <article class="card" onclick="location.href='./pages/propiedad.php?id=<?= $propiedad['id']?>'">
                     <div class="card-img-container">
                         <img class="card-img" src="<?= htmlspecialchars($propiedad['img_link']) ?>" alt="Foto Propiedad">
                     </div>
@@ -186,7 +175,7 @@ if (!isset($_SESSION['propiedadesAlquiler'])) {
             ?>
 
             <div class="cardButtonContainer">
-                <button class="learn-more">
+                <button class="learn-more" onclick="location.href='./pages/verMasPropiedades.php?id=<?= $row['id'] = 2 ?>'">
                     <span class="circle" aria-hidden="true">
                         <span class="icon arrow"></span>
                     </span>

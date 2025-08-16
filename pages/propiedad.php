@@ -1,0 +1,165 @@
+<?php
+include '../includes/obtenerPropiedades/obtenerTodas.php';
+include '../includes/obtenerUsuarios.php';
+
+if (isset($_GET['id'])) {
+    $propiedadId = intval($_GET['id']);
+    $propiedadEncontrada = null;
+    foreach ($_SESSION['propiedadesTodas'] as $propiedad) {
+        if (isset($propiedad['id']) && $propiedad['id'] == $propiedadId) {
+            $propiedadEncontrada = $propiedad;
+            break;
+        }
+    }
+
+    foreach ($_SESSION['usuarios'] as $usuario) {
+        if ($usuario['id'] == $propiedadEncontrada['id_usuario']) {
+            $usuarioPropietario = $usuario;
+            break;
+        }
+    }
+
+
+
+} else {
+    echo "No se proporcionó un ID de propiedad.";
+    exit;
+}
+?>
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title><?php echo $propiedadEncontrada['titulo'] ?></title>
+    <link rel="stylesheet" href="../styles/index.css">
+    <link rel="stylesheet" href="../styles/propiedad.css">
+</head>
+
+<body>
+    <Header>
+        <section class="header-left">
+            <div class="logo-container">
+                <img class="logo-principal" src="../imgs/logo2.png" alt="logo">
+            </div>
+            <div class="social-icons">
+                <a href="https://www.facebook.com/"><img src="../imgs/Facebook.png" alt="Facebook"></a>
+                <a href="https://www.youtube.com/"><img src="../imgs/Youtube.png" alt="YouTube"></a>
+                <a href="https://www.instagram.com/"><img src="../imgs/Instagram.png" alt="Instagram"></a>
+            </div>
+
+        </section>
+
+        <section class="header-right">
+            <div class="social-icons">
+                <img class="logo-cuenta" src="../imgs/cuenta.png" alt="cuenta">
+            </div>
+
+            <nav>
+                <!----<a href="">Administrar</a> |                       Este es el que se debe mostrar si el login es Admin--->
+                <a href="../index.php">INICIO</a> |
+                <a href="">QUIENES SOMOS</a> |
+                <a href="verMasPropiedades.php?id=<?= $row['id'] = 1 ?>">DESTACADAS</a> |
+                <a href="verMasPropiedades.php?id=<?= $row['id'] = 2 ?>">ALQUILERES</a> |
+                <a href="verMasPropiedades.php?id=<?= $row['id'] = 3 ?>">VENTAS</a> |
+                <a href="">CONTACTANOS</a>
+            </nav>
+        </section>
+    </Header>
+
+
+    <section class="product-container">
+        <div class="product-img-container">
+            <img class="product-img" src="../<?= htmlspecialchars($propiedadEncontrada['img_link']) ?>" alt="Foto Propiedad">
+        </div>
+        <div class="product-details">
+            <h3><?= htmlspecialchars($propiedadEncontrada['titulo']) ?></h3>
+
+
+            <?php
+            if ($propiedadEncontrada['id_tipo'] == 1) {
+                echo '<p>Tipo: Alquiler</p>';
+            } else {
+                echo '<p>Tipo: Venta</p>';
+            }
+
+            if ($propiedadEncontrada['destacada']) {
+                echo '<p>Destacada</p>';
+            }
+            ?>
+            <p>Descripcion breve: <?= htmlspecialchars($propiedadEncontrada['descripcion_breve']) ?></p>
+            <p>Precio: $<?= htmlspecialchars($propiedadEncontrada['precio']) ?></p>
+
+            <?php echo '<p>Agente: ' . htmlspecialchars($usuarioPropietario['nombre']) . '</p>'?>
+
+            <p>Descripcion completa: <?= htmlspecialchars($propiedadEncontrada['descripcion_larga']) ?></p>
+            <p>Ubicacion: <?= htmlspecialchars($propiedadEncontrada['ubicacion']) ?></p>
+            <img class="product-map" src="../<?= htmlspecialchars($propiedadEncontrada['mapa_link']) ?>" alt="Foto Mapa">
+
+
+        </div>
+
+
+
+    </section>
+
+    <footer>
+        <section class="footer-amarillo">
+            <article class="footer-left">
+                <h3>Direccion</h3>
+                <p>Telefono: 123456789</p>
+                <p>Email: info@utnrealstate.com</p>
+            </article>
+
+            <article class="footer-center">
+
+                <article class="logo-footer-container">
+                    <img class="logo-footer" src="../imgs/logo1.png" alt="Logo oscuro">
+                </article>
+
+                <article class="social-icons">
+                    <a href="https://www.facebook.com/"><img src="../imgs/Facebook.png" alt="Facebook"></a>
+                    <a href="https://www.youtube.com/"><img src="../imgs/Youtube.png" alt="YouTube"></a>
+                    <a href="https://www.instagram.com/"><img src="../imgs/Instagram.png" alt="Instagram"></a>
+                </article>
+
+            </article>
+
+            <div class="contact-form">
+                <h3 class="contact-title">Contáctanos</h3>
+                <form>
+                    <div class="form-group">
+                        <label for="nombre">Nombre:</label>
+                        <input type="text" id="nombre" class="input-text">
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email:</label>
+                        <input type="email" id="email" class="input-text">
+                    </div>
+                    <div class="form-group">
+                        <label for="telefono">Teléfono:</label>
+                        <input type="text" id="telefono" class="input-text">
+                    </div>
+                    <div class="form-group">
+                        <label for="mensaje">Mensaje:</label>
+                        <textarea id="mensaje" class="input-text"></textarea>
+                    </div>
+                    <div class="form-group button-container">
+                        <button type="submit" class="btn-enviar">Enviar</button>
+                    </div>
+                </form>
+            </div>
+
+        </section>
+
+        <section class="footer-final">
+            <p>UTN Real State - Todos los derechos reservados 2024</p>
+        </section>
+
+    </footer>
+
+</body>
+
+</html>
