@@ -4,6 +4,15 @@ include 'includes/conexion.php';
 include 'includes/obtenerPropiedades/obtenerDestacadas.php';
 include 'includes/obtenerPropiedades/obtenerVentas.php';
 include 'includes/obtenerPropiedades/obtenerAlquiler.php';
+if (isset($_SESSION['color-principal']) && isset($_SESSION['color-secundario']) && isset($_SESSION['color-terciario']) && isset($_SESSION['color-claro'])) {
+    // Colores ya definidos en la sesión
+} else {
+    // Definir colores por defecto si no están establecidos
+    $_SESSION['color-principal'] = '#10104b';
+    $_SESSION['color-secundario'] = '#c7c400';
+    $_SESSION['color-terciario'] = '#000000ff';
+    $_SESSION['color-claro'] = '#ffffff';
+}
 ?>
 
 <!DOCTYPE html>
@@ -13,24 +22,31 @@ include 'includes/obtenerPropiedades/obtenerAlquiler.php';
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>UTN Real State</title>
-    <link rel="stylesheet" href="styles/index.css">
     <style>
+        :root {
+            --color-principal: <?php echo $_SESSION['color-principal']; ?>;
+            --color-secundario: <?php echo $_SESSION['color-secundario']; ?>;
+            --color-terciario: <?php echo $_SESSION['color-terciario']; ?>;
+            --color-claro: <?php echo $_SESSION['color-claro']; ?>;
+        }
+
         .banner {
             background-image: url('./imgs/banner.jpg');
         }
     </style>
+    <link rel="stylesheet" href="styles/index.css">
 </head>
 
 <body>
-    <Header>
+    <header class="header">
         <section class="header-left">
             <div class="logo-container">
-                <img class="logo-principal" src="./imgs/logo2.png" alt="logo">
+                <img class="logo-principal" src="./imgs/logo1.png" alt="logo">
             </div>
             <div class="social-icons">
                 <a href="https://www.facebook.com/"><img src="./imgs/Facebook.png" alt="Facebook"></a>
                 <a href="https://www.youtube.com/"><img src="./imgs/Youtube.png" alt="YouTube"></a>
-                <a href="https://www.instagram.com/"><img src="./imgs/Instagram.png" alt="Instagram"></a>                
+                <a href="https://www.instagram.com/"><img src="./imgs/Instagram.png" alt="Instagram"></a>
             </div>
 
         </section>
@@ -42,6 +58,7 @@ include 'includes/obtenerPropiedades/obtenerAlquiler.php';
 
             <nav>
                 <!----<a href="">Administrar</a> |                       Este es el que se debe mostrar si el login es Admin--->
+                <a href="./pages/administrar.php">ADMINISTRAR</a> |
                 <a href="">INICIO</a> |
                 <a href="">QUIENES SOMOS</a> |
                 <a href="./pages/verMasPropiedades.php?id=<?= $row['id'] = 1 ?>">DESTACADAS</a> |
@@ -49,13 +66,12 @@ include 'includes/obtenerPropiedades/obtenerAlquiler.php';
                 <a href="./pages/verMasPropiedades.php?id=<?= $row['id'] = 3 ?>">VENTAS</a> |
                 <a href="">CONTACTANOS</a>
             </nav>
-
             <div class="buscador">
                 <input type="text" placeholder="Ingrese su busqueda">
                 <button type="submit">Buscar</button>
             </div>
         </section>
-    </Header>
+    </header>
 
     <main>
 
@@ -64,8 +80,9 @@ include 'includes/obtenerPropiedades/obtenerAlquiler.php';
                 <h1>TEXTO DEL BANNER AQUI</h1>
             </article>
         </section>
-        <h1 class="titulos">Quienes Somos</h1>
         <section class="quienes-somos">
+
+            <h1 class="titulos">Quienes Somos</h1>
             <article class="texto-quienes-somos">
                 <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio voluptatem adipisci similique error corporis earum libero veritatis aliquam, laudantium, molestiae aperiam minus ad ipsa sit fuga vitae modi nesciunt ut? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis deserunt praesentium, et veritatis, aperiam hic consequuntur voluptate quibusdam repellendus adipisci, natus assumenda optio suscipit quis iure eveniet nobis vel sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, error similique? Reiciendis eius accusantium distinctio, enim consequuntur tempora, repudiandae, obcaecati iusto et architecto libero dolores nam eos. Accusamus, reprehenderit inventore.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio voluptatem adipisci similique error corporis earum libero veritatis aliquam, laudantium, molestiae aperiam minus ad ipsa sit fuga vitae modi nesciunt ut? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis deserunt praesentium, et veritatis, aperiam hic consequuntur voluptate quibusdam repellendus adipisci, natus assumenda optio suscipit quis iure eveniet nobis vel sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, error similique? Reiciendis eius accusantium distinctio, enim consequuntur tempora, repudiandae, obcaecati iusto et architecto libero dolores nam eos. Accusamus, reprehenderit inventore.Lorem ipsum dolor, sit amet consectetur adipisicing elit. Distinctio voluptatem adipisci similique error corporis earum libero veritatis aliquam, laudantium, molestiae aperiam minus ad ipsa sit fuga vitae modi nesciunt ut? Lorem, ipsum dolor sit amet consectetur adipisicing elit. Perspiciatis deserunt praesentium, et veritatis, aperiam hic consequuntur voluptate quibusdam repellendus adipisci, natus assumenda optio suscipit quis iure eveniet nobis vel sunt! Lorem ipsum dolor sit amet consectetur adipisicing elit. Aut, error similique? Reiciendis eius accusantium distinctio, enim consequuntur tempora, repudiandae, obcaecati iusto et architecto libero dolores nam eos. Accusamus, reprehenderit inventore.</p>
             </article>
@@ -82,7 +99,7 @@ include 'includes/obtenerPropiedades/obtenerAlquiler.php';
             $propiedadesDestacadas = array_slice($_SESSION['propiedadesDestacadas'], -3); // solo extrae 3 propiedades destacadas
             foreach ($propiedadesDestacadas as $propiedad) {
             ?>
-                <article class="card" onclick="location.href='./pages/propiedad.php?id=<?= $propiedad['id']?>'">
+                <article class="card" onclick="location.href='./pages/propiedad.php?id=<?= $propiedad['id'] ?>'">
                     <div class="card-img-container">
                         <img class="card-img" src="<?= htmlspecialchars($propiedad['img_link']) ?>" alt="Foto Propiedad">
                     </div>
@@ -119,7 +136,7 @@ include 'includes/obtenerPropiedades/obtenerAlquiler.php';
             $propiedadesVentas = array_slice($_SESSION['propiedadesVentas'], -3); // solo extrae 3 propiedades destacadas
             foreach ($propiedadesVentas as $propiedad) {
             ?>
-                <article class="card" onclick="location.href='./pages/propiedad.php?id=<?= $propiedad['id']?>'">
+                <article class="card2" onclick="location.href='./pages/propiedad.php?id=<?= $propiedad['id'] ?>'">
                     <div class="card-img-container">
                         <img class="card-img" src="<?= htmlspecialchars($propiedad['img_link']) ?>" alt="Foto Propiedad">
                     </div>
@@ -156,7 +173,7 @@ include 'includes/obtenerPropiedades/obtenerAlquiler.php';
             $propiedadesAlquiler = array_slice($_SESSION['propiedadesAlquiler'], -3); // solo extrae 3 propiedades destacadas
             foreach ($propiedadesAlquiler as $propiedad) {
             ?>
-                <article class="card" onclick="location.href='./pages/propiedad.php?id=<?= $propiedad['id']?>'">
+                <article class="card" onclick="location.href='./pages/propiedad.php?id=<?= $propiedad['id'] ?>'">
                     <div class="card-img-container">
                         <img class="card-img" src="<?= htmlspecialchars($propiedad['img_link']) ?>" alt="Foto Propiedad">
                     </div>
@@ -197,7 +214,7 @@ include 'includes/obtenerPropiedades/obtenerAlquiler.php';
             <article class="footer-center">
 
                 <article class="logo-footer-container">
-                    <img class="logo-footer" src="./imgs/logo1.png" alt="Logo oscuro">
+                    <img class="logo-footer" src="./imgs/logo2.png" alt="Logo oscuro">
                 </article>
 
                 <article class="social-icons">

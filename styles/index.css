@@ -1,10 +1,11 @@
+
+
 body {
     margin: 0;
 }
 
 header {
-    background-color: #0b0c10;
-    color: white;
+    background-color: var(--color-terciario);
     padding: 10px 20px;
     display: flex;
     justify-content: space-between;
@@ -48,11 +49,12 @@ header {
     display: flex;
     flex-direction: column;
     align-items: flex-end;
+    color: var(--color-secundario);
 }
 
 .header-right a,
 nav {
-    color: yellow;
+    color: var(--color-secundario);
     text-decoration: none;
     font-size: 18px;
     margin-top: 15px;
@@ -61,7 +63,7 @@ nav {
 .buscador {
     display: flex;
     align-items: center;
-    background: white;
+    background: var(--color-secundario);
     border-radius: 5px;
     padding: 3px 5px;
     margin-top: 15px;
@@ -106,12 +108,11 @@ nav {
     inset: 0;
     display: grid;
     place-items: center;
-    background: rgba(0, 0, 0, 0.15);
 }
 
 .texto-banner h1 {
     margin: 0;
-    color: #fff;
+    color: var(--color-claro);
     text-align: center;
     text-transform: uppercase;
     letter-spacing: .08em;
@@ -121,9 +122,19 @@ nav {
 
 .quienes-somos {
     display: flex;
+    flex-direction: row;
     justify-content: space-around;
-    padding: 4rem;
+    flex-wrap: wrap;
+    padding-bottom: 10vh;
+    background-color: var(--color-claro);
+    color: var(--color-principal);
 
+}
+
+.texto-quienes-somos{
+    max-width: 40vw;
+    font-size: 18px;
+    color: var(--color-principal);
 }
 
 .quienes-somos-img {
@@ -149,11 +160,23 @@ nav {
     justify-content: center;
     align-items: center;
     justify-items: center;
-    background-color: rgb(16, 16, 75);
+    background-color: var(--color-principal);
+}
+
+.card-container-mas-propiedades{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+    background-color: var(--color-principal);
+    padding: 80px;
+    color: var(--color-claro);
 }
 
 .card-container h1 {
-    color: white;
+    color: var(--color-claro);
 }
 
 .ventas-container {
@@ -163,7 +186,8 @@ nav {
     justify-content: center;
     align-items: center;
     justify-items: center;
-    background-color: #f8f9fa;
+    background-color: var(--color-claro);
+    color: var(--color-principal);
 }
 
 .cardButtonContainer {
@@ -202,7 +226,7 @@ button.learn-more .circle {
     margin: 0;
     width: 3rem;
     height: 3rem;
-    background: #ffff;
+    background: var(--color-claro);
     border-radius: 1.625rem;
 }
 
@@ -212,7 +236,7 @@ button.learn-more .circle .icon {
     top: 0;
     bottom: 0;
     margin: auto;
-    background: #000000;
+    background: var(--color-terciario);
 }
 
 button.learn-more .circle .icon.arrow {
@@ -230,8 +254,8 @@ button.learn-more .circle .icon.arrow::before {
     right: 0.0625rem;
     width: 0.625rem;
     height: 0.625rem;
-    border-top: 0.125rem solid #000000;
-    border-right: 0.125rem solid #000000;
+    border-top: 0.125rem solid var(--color-principal);
+    border-right: 0.125rem solid var(--color-principal);
     transform: rotate(45deg);
 }
 
@@ -244,7 +268,7 @@ button.learn-more .button-text {
     bottom: 0;
     padding: 0.75rem 0;
     margin: 0 0 0 1.85rem;
-    color: #ffff;
+    color: var(--color-claro);
     font-weight: 700;
     line-height: 1.6;
     text-align: center;
@@ -256,12 +280,12 @@ button:hover .circle {
 }
 
 button:hover .circle .icon.arrow {
-    background: #000000;
+    background: var(--color-principal);
     transform: translate(1rem, 0);
 }
 
 button:hover .button-text {
-    color: #000000;
+    color: var(--color-principal);
 }
 
 /*-------------------------------------------------------------*/
@@ -277,7 +301,7 @@ button.learn-more2 .circle2 {
     margin: 0;
     width: 3rem;
     height: 3rem;
-    background: #000000;
+    background: var(--color-principal);
     border-radius: 1.625rem;
 }
 
@@ -287,7 +311,7 @@ button.learn-more2 .circle2 .icon2 {
     top: 0;
     bottom: 0;
     margin: auto;
-    background: #ffff;
+    background: var(--color-claro);
 }
 
 button.learn-more2 .circle2 .icon2.arrow2 {
@@ -305,8 +329,8 @@ button.learn-more2 .circle2 .icon2.arrow2::before {
     right: 0.0625rem;
     width: 0.625rem;
     height: 0.625rem;
-    border-top: 0.125rem solid #ffff;
-    border-right: 0.125rem solid #ffff;
+    border-top: 0.125rem solid var(--color-claro);
+    border-right: 0.125rem solid var(--color-claro);
     transform: rotate(45deg);
 }
 
@@ -319,7 +343,7 @@ button.learn-more2 .button-text2 {
     bottom: 0;
     padding: 0.75rem 0;
     margin: 0 0 0 1.85rem;
-    color: #000000;
+    color: var(--color-principal);
     font-weight: 700;
     line-height: 1.6;
     text-align: center;
@@ -331,24 +355,24 @@ button:hover .circle2 {
 }
 
 button:hover .circle2 .icon2.arrow2 {
-    background: #ffff;
+    background: var(--color-claro);
     transform: translate(1rem, 0);
 }
 
 button:hover .button-text2 {
-    color: #ffff;
+    color: var(--color-claro);
 }
 
 /* --------------------------------FINAL DISEÑO DEL BOTON VER MAS------------------------------------ */
 
 .card {
-    background-color: #fafafa;
-    border: 1px solid #ddd;
+    background-color: var(--color-claro);
+    border: 1px solid var(--color-claro);
+    color: var(--color-principal);
     border-radius: 4px;
     width: 30dvw;
     overflow: hidden;
     text-align: center;
-    justify-self: center;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
 }
 
@@ -363,8 +387,7 @@ button:hover .button-text2 {
     margin: 10px;
     padding: 5px 10px;
     text-decoration: none;
-    color: white;
-    background-color: #28a745;
+    color: var(--color-claro);
     border-radius: 4px;
 }
 
@@ -374,11 +397,44 @@ button:hover .button-text2 {
     opacity: 0.9;
 }
 
+.card2 {
+    background-color: var(--color-principal);
+    border: 1px solid var(--color-principal);
+    color: var(--color-claro);
+    border-radius: 4px;
+    width: 30dvw;
+    overflow: hidden;
+    text-align: center;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+
+.card2 img {
+    width: 100%;
+    height: 50dvh;
+    object-fit: cover;
+}
+
+.card2 a {
+    display: inline-block;
+    margin: 10px;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: var(--color-claro);
+    border-radius: 4px;
+}
+
+
+
+.card2 a:hover {
+    opacity: 0.9;
+}
+
 /*Footer*/
 
 .footer-amarillo {
-    background-color: #c7c400;
-    color: black;
+    background-color: var(--color-terciario);
+    color: var(--color-secundario);
     padding: 10px 20px;
     display: flex;
     justify-content: space-around;
@@ -412,7 +468,7 @@ button:hover .button-text2 {
     flex-direction: column;
 }
 .contact-form {
-    background-color: #ffffffa9;
+    background-color: #ffffff2c;
     border-radius: 4px;
     padding: 5px;
 }
@@ -448,8 +504,8 @@ textarea.input-text {
     margin: 0;
 }
 .btn-enviar {
-    background-color: black;
-    color: #ffffff;
+    background-color: var(--color-secundario);
+    color: var(--color-terciario);
     border: none;
     padding: 3px 6px;
     border-radius: 3px;
@@ -462,9 +518,37 @@ textarea.input-text {
 }
 
 .footer-final {
-    background-color: rgb(16, 16, 75);
-    color: white;
+    background-color: var(--color-principal);
+    color: var(--color-claro);
     text-align: center;
     padding: 5px 20px;
     font-size: 0.9rem;
+}
+
+/*Pagina de Propiedad*/
+
+.product-container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding-top: 10vh;
+    padding-bottom: 10vh;
+    background-color:  var(--color-principal);
+    color: var(--color-claro);
+}
+
+
+.product-img {
+    max-width: 40vw;
+    max-height: 50vh;
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    position: relative;
+    overflow: hidden;
+}
+
+.product-details {
+    max-width: 40vw;
+    font-size: 18px;
 }

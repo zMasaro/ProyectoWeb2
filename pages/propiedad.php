@@ -25,6 +25,10 @@ if (isset($_GET['id'])) {
     echo "No se proporcionó un ID de propiedad.";
     exit;
 }
+if (!isset($_SESSION['color-principal'])) $_SESSION['color-principal'] = '#10104b';
+if (!isset($_SESSION['color-secundario'])) $_SESSION['color-secundario'] = '#c7c400';
+if (!isset($_SESSION['color-terciario'])) $_SESSION['color-terciario'] = '#000000';
+if (!isset($_SESSION['color-claro'])) $_SESSION['color-claro'] = '#ffffff';
 ?>
 
 <!DOCTYPE html>
@@ -35,14 +39,21 @@ if (isset($_GET['id'])) {
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?php echo $propiedadEncontrada['titulo'] ?></title>
     <link rel="stylesheet" href="../styles/index.css">
-    <link rel="stylesheet" href="../styles/propiedad.css">
+    <style>
+        :root {
+            --color-principal: <?php echo $_SESSION['color-principal']; ?>;
+            --color-secundario: <?php echo $_SESSION['color-secundario']; ?>;
+            --color-terciario: <?php echo $_SESSION['color-terciario']; ?>;
+            --color-claro: <?php echo $_SESSION['color-claro']; ?>;
+        }
+    </style>
 </head>
 
 <body>
     <Header>
         <section class="header-left">
             <div class="logo-container">
-                <img class="logo-principal" src="../imgs/logo2.png" alt="logo">
+                <img class="logo-principal" src="../imgs/logo1.png" alt="logo">
             </div>
             <div class="social-icons">
                 <a href="https://www.facebook.com/"><img src="../imgs/Facebook.png" alt="Facebook"></a>
@@ -116,7 +127,7 @@ if (isset($_GET['id'])) {
             <article class="footer-center">
 
                 <article class="logo-footer-container">
-                    <img class="logo-footer" src="../imgs/logo1.png" alt="Logo oscuro">
+                    <img class="logo-footer" src="../imgs/logo2.png" alt="Logo oscuro">
                 </article>
 
                 <article class="social-icons">
