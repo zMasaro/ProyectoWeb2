@@ -1,5 +1,6 @@
 <?php
-session_start();
+require_once __DIR__ . '/../includes/auth.php';
+require_admin();
 
 if (!isset($_SESSION['color-principal'])) $_SESSION['color-principal'] = '#10104b';
 if (!isset($_SESSION['color-secundario'])) $_SESSION['color-secundario'] = '#c7c400';
@@ -77,13 +78,15 @@ if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['rol'] != 'administrado
             </div>
 
             <nav>
-                <!----<a href="">Administrar</a> |                       Este es el que se debe mostrar si el login es Admin--->
                 <a href="../index.php">INICIO</a> |
                 <a href="../index.php#QuienesSomos">QUIENES SOMOS</a> |
-                <a href="verMasPropiedades.php?id=<?= $row['id'] = 1 ?>">DESTACADAS</a> |
-                <a href="verMasPropiedades.php?id=<?= $row['id'] = 2 ?>">ALQUILERES</a> |
-                <a href="verMasPropiedades.php?id=<?= $row['id'] = 3 ?>">VENTAS</a> |
-                <a href="#Contactanos">CONTACTANOS</a>
+                <a href="verMasPropiedades.php?id=1">DESTACADAS</a> |
+                <a href="verMasPropiedades.php?id=2">ALQUILERES</a> |
+                <a href="verMasPropiedades.php?id=3">VENTAS</a> |
+                <a href="mis_propiedades.php">MIS PROPIEDADES</a> |
+                <a href="usuarios.php">USUARIOS</a> |
+                <a href="perfil.php">MI PERFIL</a> |
+                <a href="../logout.php">SALIR</a>
             </nav>
 
             <form action="../includes/obtenerPropiedades/obtenerFiltradas.php" method="GET">
@@ -173,9 +176,9 @@ if (!isset($_SESSION['usuario']) || $_SESSION['usuario']['rol'] != 'administrado
     <footer>
         <section class="footer-amarillo">
             <article class="footer-left">
-                <h3>Direccion: <?php echo $_SESSION['texto-direccion']?></h3>
-                <p>Telefono: <?php echo $_SESSION['texto-telefono']?></p>
-                <p>Email: <?php echo $_SESSION['texto-correo']?></p>
+                <h3>Direccion: <?php echo htmlspecialchars($_SESSION['texto-direccion']); ?></h3>
+                <p>Telefono: <?php echo htmlspecialchars($_SESSION['texto-telefono']); ?></p>
+                <p>Email: <?php echo htmlspecialchars($_SESSION['texto-correo']); ?></p>
             </article>
 
             <article class="footer-center">

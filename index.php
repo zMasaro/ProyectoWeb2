@@ -1,6 +1,7 @@
 <?php
 session_start();
 include 'includes/conexion.php';
+require_once __DIR__ . '/includes/auth.php';
 
 if (!isset($_SESSION['propiedadesDestacadas'])) {
     include 'includes/obtenerPropiedades/obtenerDestacadas.php';
@@ -81,14 +82,20 @@ if (!isset($_SESSION['texto-correo'])) $_SESSION['texto-correo'] = 'info@utnreal
             </div>
 
             <nav>
-                <!----<a href="">Administrar</a> |                       Este es el que se debe mostrar si el login es Admin--->
-                <a href="./pages/administrar.php">ADMINISTRAR</a> |
                 <a href="">INICIO</a> |
                 <a href="#QuienesSomos">QUIENES SOMOS</a> |
-                <a href="./pages/verMasPropiedades.php?id=<?= $row['id'] = 1 ?>">DESTACADAS</a> |
-                <a href="./pages/verMasPropiedades.php?id=<?= $row['id'] = 2 ?>">ALQUILERES</a> |
-                <a href="./pages/verMasPropiedades.php?id=<?= $row['id'] = 3 ?>">VENTAS</a> |
+                <a href="./pages/verMasPropiedades.php?id=1">DESTACADAS</a> |
+                <a href="./pages/verMasPropiedades.php?id=2">ALQUILERES</a> |
+                <a href="./pages/verMasPropiedades.php?id=3">VENTAS</a> |
                 <a href="#Contactanos">CONTACTANOS</a>
+                <?php if (is_logged_in()): ?> |
+                    <a href="./pages/mis_propiedades.php">MIS PROPIEDADES</a>
+                    <?php if (is_admin()): ?> | <a href="./pages/usuarios.php">USUARIOS</a> | <a href="./pages/administrar.php">ADMINISTRAR</a><?php endif; ?> |
+                    <a href="./pages/perfil.php">MI PERFIL</a> |
+                    <a href="logout.php">SALIR</a>
+                <?php else: ?> |
+                    <a href="login.php">INGRESAR</a>
+                <?php endif; ?>
             </nav>
             <form action="./includes/obtenerPropiedades/obtenerFiltradas.php" method="GET">
                 <div class="buscador">
@@ -103,14 +110,14 @@ if (!isset($_SESSION['texto-correo'])) $_SESSION['texto-correo'] = 'info@utnreal
 
         <section class="banner">
             <article class="texto-banner">
-                <h1><?php echo $_SESSION['texto-banner'] ?></h1>
+                <h1><?php echo htmlspecialchars($_SESSION['texto-banner']); ?></h1>
             </article>
         </section>
-        <section id="QuienesSomos"  class="quienes-somos">
+        <section id="QuienesSomos" class="quienes-somos">
 
             <h1 class="titulos">Quienes Somos</h1>
             <article class="texto-quienes-somos">
-                <p><?php echo $_SESSION['texto-somos'] ?></p>
+                <p><?php echo htmlspecialchars($_SESSION['texto-somos']); ?></p>
             </article>
             <article class="quienes-somos-img-container">
                 <img class="quienes-somos-img" src="./<?php echo $_SESSION['img-somos'] ?>" alt="Quienes Somos">
@@ -228,9 +235,9 @@ if (!isset($_SESSION['texto-correo'])) $_SESSION['texto-correo'] = 'info@utnreal
     <footer>
         <section class="footer-amarillo">
             <article class="footer-left">
-                <h3>Direccion: <?php echo $_SESSION['texto-direccion'] ?></h3>
-                <p>Telefono: <?php echo $_SESSION['texto-telefono'] ?></p>
-                <p>Email: <?php echo $_SESSION['texto-correo'] ?></p>
+                <h3>Direccion: <?php echo htmlspecialchars($_SESSION['texto-direccion']); ?></h3>
+                <p>Telefono: <?php echo htmlspecialchars($_SESSION['texto-telefono']); ?></p>
+                <p>Email: <?php echo htmlspecialchars($_SESSION['texto-correo']); ?></p>
             </article>
 
             <article class="footer-center">

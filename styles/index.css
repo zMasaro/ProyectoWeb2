@@ -1,5 +1,3 @@
-
-
 body {
     margin: 0;
 }
@@ -554,3 +552,18 @@ textarea.input-text {
     max-width: 40vw;
     font-size: 18px;
 }
+
+/* --- Auth & CRUD simple styles --- */
+.auth-main, .usuarios-main, .propiedades-main { padding: 1rem; background: var(--color-claro); color: var(--color-terciario); }
+.auth-box, .usuarios-crear, .usuarios-lista, .crear-propiedad, .lista-propiedades { background:#ffffff; border:1px solid #ddd; padding:1rem; margin-bottom:1rem; border-radius:4px; }
+.form-group { display:flex; flex-direction:column; margin-bottom:.5rem; }
+.form-group label { font-weight:600; margin-bottom:2px; }
+.form-group input[type=text], .form-group input[type=password], .form-group input[type=email], .form-group select, .form-group textarea { padding:.4rem; border:1px solid #ccc; border-radius:3px; font: inherit; }
+.inline-form { display:inline-block; vertical-align:top; margin:.25rem 0; }
+.inline-form input[type=text] { width:120px; }
+.tabla-usuarios, .tabla-propiedades { width:100%; border-collapse:collapse; font-size:.9rem; }
+.tabla-usuarios th, .tabla-usuarios td, .tabla-propiedades th, .tabla-propiedades td { border:1px solid #ccc; padding:.4rem; text-align:left; }
+.mensaje-error { color:#b30000; font-weight:600; }
+.mensaje-info { color: var(--color-principal); font-weight:600; }
+.auth-box h2, .usuarios-crear h2, .usuarios-lista h2, .crear-propiedad h2, .lista-propiedades h2 { margin-top:0; }
+/* --- End auth & CRUD styles --- */

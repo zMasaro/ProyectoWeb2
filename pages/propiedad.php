@@ -1,25 +1,25 @@
 <?php
-include '../includes/obtenerPropiedades/obtenerTodas.php';
-include '../includes/obtenerUsuarios.php';
+session_start();
+require_once __DIR__ . '/../includes/conexion.php';
 
+$propiedadEncontrada = null;
+$usuarioPropietario = null;
 if (isset($_GET['id'])) {
-    $propiedadId = intval($_GET['id']);
-    $propiedadEncontrada = null;
-    foreach ($_SESSION['propiedadesTodas'] as $propiedad) {
-        if (isset($propiedad['id']) && $propiedad['id'] == $propiedadId) {
-            $propiedadEncontrada = $propiedad;
-            break;
-        }
+    $propiedadId = (int)$_GET['id'];
+    if ($stmt = mysqli_prepare($conexion, 'SELECT p.*, u.nombre AS agente_nombre FROM propiedades p INNER JOIN usuario u ON u.id = p.id_usuario WHERE p.id = ? LIMIT 1')) {
+        mysqli_stmt_bind_param($stmt, 'i', $propiedadId);
+        mysqli_stmt_execute($stmt);
+        $res = mysqli_stmt_get_result($stmt);
+        $propiedadEncontrada = mysqli_fetch_assoc($res) ?: null;
     }
-
-    foreach ($_SESSION['usuarios'] as $usuario) {
-        if ($usuario['id'] == $propiedadEncontrada['id_usuario']) {
-            $usuarioPropietario = $usuario;
-            break;
-        }
+    if (!$propiedadEncontrada) {
+        http_response_code(404);
+        echo 'Propiedad no encontrada';
+        exit;
     }
 } else {
-    echo "No se proporcionó un ID de propiedad.";
+    http_response_code(400);
+    echo 'No se proporcionó un ID de propiedad.';
     exit;
 }
 if (!isset($_SESSION['color-principal'])) $_SESSION['color-principal'] = '#10104b';
@@ -53,7 +53,7 @@ if (!isset($_SESSION['texto-correo'])) $_SESSION['texto-correo'] = 'info@utnreal
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title><?php echo $propiedadEncontrada['titulo'] ?></title>
+    <title><?php echo htmlspecialchars($propiedadEncontrada['titulo']); ?></title>
     <link rel="stylesheet" href="../styles/index.css">
     <style>
         :root {
@@ -85,12 +85,11 @@ if (!isset($_SESSION['texto-correo'])) $_SESSION['texto-correo'] = 'info@utnreal
             </div>
 
             <nav>
-                <!----<a href="">Administrar</a> |                       Este es el que se debe mostrar si el login es Admin--->
                 <a href="../index.php">INICIO</a> |
                 <a href="../index.php#QuienesSomos">QUIENES SOMOS</a> |
-                <a href="verMasPropiedades.php?id=<?= $row['id'] = 1 ?>">DESTACADAS</a> |
-                <a href="verMasPropiedades.php?id=<?= $row['id'] = 2 ?>">ALQUILERES</a> |
-                <a href="verMasPropiedades.php?id=<?= $row['id'] = 3 ?>">VENTAS</a> |
+                <a href="verMasPropiedades.php?id=1">DESTACADAS</a> |
+                <a href="verMasPropiedades.php?id=2">ALQUILERES</a> |
+                <a href="verMasPropiedades.php?id=3">VENTAS</a> |
                 <a href="#Contactanos">CONTACTANOS</a>
             </nav>
         </section>
@@ -106,24 +105,24 @@ if (!isset($_SESSION['texto-correo'])) $_SESSION['texto-correo'] = 'info@utnreal
 
 
             <?php
-            if ($propiedadEncontrada['id_tipo'] == 1) {
+            if ((int)$propiedadEncontrada['id_tipo'] == 1) {
                 echo '<p>Tipo: Alquiler</p>';
             } else {
                 echo '<p>Tipo: Venta</p>';
             }
 
-            if ($propiedadEncontrada['destacada']) {
+            if ((int)$propiedadEncontrada['destacada']) {
                 echo '<p>Destacada</p>';
             }
             ?>
             <p>Descripcion breve: <?= htmlspecialchars($propiedadEncontrada['descripcion_breve']) ?></p>
             <p>Precio: $<?= htmlspecialchars($propiedadEncontrada['precio']) ?></p>
-
-            <?php echo '<p>Agente: ' . htmlspecialchars($usuarioPropietario['nombre']) . '</p>' ?>
-
+            <p>Agente: <?= htmlspecialchars($propiedadEncontrada['agente_nombre']) ?></p>
             <p>Descripcion completa: <?= htmlspecialchars($propiedadEncontrada['descripcion_larga']) ?></p>
             <p>Ubicacion: <?= htmlspecialchars($propiedadEncontrada['ubicacion']) ?></p>
-            <img class="product-map" src="../<?= htmlspecialchars($propiedadEncontrada['mapa_link']) ?>" alt="Foto Mapa">
+            <?php if (!empty($propiedadEncontrada['mapa_link'])): ?>
+                <img class="product-map" src="../<?= htmlspecialchars($propiedadEncontrada['mapa_link']) ?>" alt="Foto Mapa">
+            <?php endif; ?>
 
 
         </div>
@@ -135,9 +134,9 @@ if (!isset($_SESSION['texto-correo'])) $_SESSION['texto-correo'] = 'info@utnreal
     <footer>
         <section class="footer-amarillo">
             <article class="footer-left">
-                <h3>Direccion: <?php echo $_SESSION['texto-direccion']?></h3>
-                <p>Telefono: <?php echo $_SESSION['texto-telefono']?></p>
-                <p>Email: <?php echo $_SESSION['texto-correo']?></p>
+                <h3>Direccion: <?php echo htmlspecialchars($_SESSION['texto-direccion']); ?></h3>
+                <p>Telefono: <?php echo htmlspecialchars($_SESSION['texto-telefono']); ?></p>
+                <p>Email: <?php echo htmlspecialchars($_SESSION['texto-correo']); ?></p>
             </article>
 
             <article class="footer-center">
